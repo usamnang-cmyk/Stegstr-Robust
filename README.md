@@ -7,7 +7,7 @@ Official Stegstr embeds only in PNG (DWT). JPEG, resize, or recompression corrup
 ## What judges should run
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/Stegstr-Robust.git
+git clone https://github.com/usamnang-cmyk/Stegstr-Robust.git
 cd Stegstr-Robust/src-tauri
 cargo build --release --bin stegstr-cli
 
