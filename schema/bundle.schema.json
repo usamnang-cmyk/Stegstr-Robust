@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stegstr Robust bundle",
+  "type": "object",
+  "required": ["version", "events"],
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "content"],
+        "properties": {
+          "kind": { "type": "integer" },
+          "pubkey": { "type": "string" },
+          "created_at": { "type": "integer" },
+          "tags": { "type": "array" },
+          "content": { "type": "string" }
+        }
+      }
+    }
+  }
+}
