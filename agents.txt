@@ -1,0 +1,23 @@
+# Stegstr Robust Edition — agent metadata
+Name: Stegstr Robust Edition
+Version: 0.2.0
+Contest-Entry: #93
+Focus: Robust JPEG steganography that survives WhatsApp / Telegram / Instagram photo processing
+CLI: stegstr-cli
+Build: cd src-tauri && cargo build --release --bin stegstr-cli
+Binary: src-tauri/target/release/stegstr-cli
+
+Commands:
+- stegstr-cli embed COVER -o OUT --payload TEXT|--payload @FILE [--mode robust|lossless] [--platform whatsapp|telegram|instagram] [--encrypt]
+- stegstr-cli detect IMAGE [--json] [--decrypt]
+- stegstr-cli decode IMAGE
+- stegstr-cli post "MESSAGE" [--output bundle.json] [--privkey-hex HEX64]
+- stegstr-cli prepare IMAGE -o OUT [--platform whatsapp]
+- stegstr-cli test-survival IMAGE --simulate whatsapp|telegram|instagram --output OUT.jpg
+- stegstr-cli capacity IMAGE [--mode robust|lossless]
+
+Payload-Format: magic STEGSTR1 + version + flags + 2-byte length + payload + crc32
+Robust-Mode: Block Average QIM (Δ=12) + repetition r=15 + CRC
+Lossless-Mode: PNG LSB (high capacity, will not survive lossy photo send)
+Exit: 0 on success, non-zero on error
+JSON: --json prints structured results on stdout

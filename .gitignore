@@ -1,0 +1,5 @@
+/target/
+/src-tauri/target/
+*.jpg
+!docs/**
+.DS_Store
